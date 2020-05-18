@@ -1,16 +1,33 @@
 body {
+
   background-color: #f7f7f7;
 }
 hr {
   border-style: dotted none none;
   width: 5%;
-  height: 0px;
+  height: 0;
   border-color: #cceabb;
   border-width: 8px;
 }
-h1 {
-  color: #66BFBF;
+h1{
+  color: Blue;
+}
+
+h1:hover {
+  color: black;
+  background-color: white;
 }
 h3{
   color: #66BFBF;
+}
+img{
+    transform: rotate(5deg);
+
+    }
+.a1:hover{
+  background-color: yellow;
+
+}
+.a2:hover{
+  color: red;
 }
