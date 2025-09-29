@@ -223,7 +223,48 @@
     .btn-gradient{ border:none; background: linear-gradient(135deg, var(--primary), var(--primary-2)); color:#0b1220; font-weight:800; padding:12px 16px; border-radius:14px; text-decoration:none; box-shadow:0 10px 30px -12px #60a5fa; }
     .btn-ghost{ border:1px solid var(--border); background:#0f172acc; color:#e5e7eb; padding:12px 16px; border-radius:14px; text-decoration:none; font-weight:700; }
     @media (max-width: 900px){ .feature-inner{ grid-template-columns: 1fr; } .feature .thumb{ min-height:160px; border-left:none; border-top:1px solid var(--border);} }
-  </style>
+  
+/* ===== Mobile & Tablet Enhancements ===== */
+@media (max-width: 900px){
+  /* General container spacing */
+  .container{ width:92%; padding:0 10px; }
+
+  /* Hero section */
+  .hero{ gap:24px; text-align:center; }
+  .hero h1{ font-size: clamp(28px, 6vw, 42px); }
+  .hero p.lead{ font-size: 15px; }
+  .cta{ justify-content:center; }
+
+  /* Cards and grids */
+  .card{ padding:14px; border-radius:14px; }
+  .grid{ grid-template-columns: 1fr; }
+  .gallery img{ height:140px; }
+
+  /* Portfolio list adjustments */
+  .list{ columns:1; font-size:14px; }
+
+  /* Videos */
+  video{ height:auto; min-height:200px; }
+
+  /* Workshop gallery spacing */
+  .gallery{ gap:10px; }
+
+  /* Footer */
+  footer{ font-size:14px; padding:30px 0; }
+}
+
+@media (max-width: 600px){
+  /* Even smaller devices */
+  .hero h1{ font-size: 24px; }
+  .cta .btn{ flex:1; text-align:center; }
+  .cloud-nav{ padding:6px 8px; gap:6px; }
+  .cloud-nav .bubble{ padding:6px 10px; font-size:11px; }
+  .mobile-gallery{ grid-template-columns: repeat(2,1fr); gap:8px; }
+  .mobile-gallery .label{ font-size:.8rem; }
+}
+
+
+</style>
   <!-- Preload hero image for faster LCP (optional) -->
   <link rel="preload" as="image" href="Images/01.jpg" />
   <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
