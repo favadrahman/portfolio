@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Favad Rahman · Portfolio</title>
+  <meta name="description" content="Portfolio of Favad Rahman — Lighting Designer & Estimation Engineer based in Dubai. Projects, workshops, videos, and CV." />
+  <meta name="robots" content="index,follow" />
+  <link rel="icon" href="Images/favicon.png" />
+  <meta name="theme-color" content="#0f172a" />
+  <!-- Canonical + Open Graph -->
+  <link id="canonicalLink" rel="canonical" href="" />
+  <meta property="og:title" content="Favad Rahman · Portfolio" />
+  <meta property="og:description" content="Lighting Designer & Estimation Engineer based in Dubai. Projects, workshops, videos, and CV." />
+  <meta property="og:type" content="website" />
+  <meta id="ogUrl" property="og:url" content="" />
+  <meta id="ogImage" property="og:image" content="Images/01.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <!-- JSON-LD (built dynamically so URL/email are always correct) -->
+  <script>
+    (function(){
+      const origin = (location.origin || location.href);
+      const canonical = origin + (location.pathname || "/");
+      const c = document.getElementById('canonicalLink');
+      if(c) c.href = canonical;
+      const ogu = document.getElementById('ogUrl');
+      if(ogu) ogu.setAttribute('content', canonical);
+      // if og:image is a relative path, make it absolute for richer link previews
+      const ogi = document.getElementById('ogImage');
+      if(ogi && ogi.getAttribute('content') && !ogi.getAttribute('content').startsWith('http')){
+        ogi.setAttribute('content', new URL(ogi.getAttribute('content'), canonical).href);
+      }
+      const person = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Favad Rahman",
+        "jobTitle": "Lighting Designer & Estimation Engineer",
+        "address": {"@type":"PostalAddress","addressLocality":"Dubai","addressCountry":"AE"},
+        "email": "mailto:favadmks3@gmail.com",
+        "url": canonical,
+        "sameAs": [
+          // Add any public profiles below. Keep empty ones out.
+        ].filter(Boolean)
+      };
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.text = JSON.stringify(person);
+      document.head.appendChild(s);
+    })();
+  </script>
+
+  <style>
+    /* ====== THEME & GRADIENT ====== */
+    :root{
+      --bg1: #0f172a;        /* slate-900 */
+      --bg2: #111827;        /* gray-900 */
+      --ink: #e5e7eb;        /* gray-200 */
+      --muted: #94a3b8;      /* slate-400 */
+      --primary: #a78bfa;    /* violet-400 */
+      --primary-2: #60a5fa;  /* blue-400 */
+      --accent: #34d399;     /* emerald-400 */
+      --chip: #1f2937;       /* gray-800 */
+      --card: #0b1220ee;     /* translucent card */
+      --border: #1f2a44;     
+    }
+
+    html,body { height: 100%; }
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink); background: radial-gradient(60vw 60vw at 20% -10%, #6ee7ff20, transparent 60%),
+                               radial-gradient(60vw 60vw at 90% 10%, #a78bfa22, transparent 60%),
+                               linear-gradient(120deg, var(--bg1), var(--bg2));
+      background-attachment: fixed;
+      scroll-behavior:smooth; /* disabled for reduced-motion in CSS below */
+    }
+
+    /* Skip link */
+    .skip{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip:focus{ left:16px; top:12px; width:auto; height:auto; padding:10px 12px; background:#111; color:#fff; border-radius:8px; z-index:1000; }
+
+    /* Animated soft gradient blob backdrop */
+    .gradient-veil{
+      position: fixed; inset: -20vmax; z-index: -1; filter: blur(60px) saturate(130%);
+      background: conic-gradient(from 180deg at 50% 50%, #8b5cf6 0deg, #38bdf8 120deg, #22d3ee 160deg, #34d399 220deg, #8b5cf6 360deg);
+      opacity: .22; animation: spin 40s linear infinite;
+    }
+    @keyframes spin{ to{ transform: rotate(360deg);} }
+
+    /* ====== LAYOUT ====== */
+    .container{ width:min(1100px, 92vw); margin:auto; }
+    header{ position: sticky; top:0; backdrop-filter: blur(8px); background: #0b1220aa; border-bottom:1px solid var(--border); z-index:50; }
+    nav[aria-label="Primary"]{ display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+    .brandmark{ display:flex; gap:12px; align-items:center; font-weight:700; letter-spacing:.3px; }
+    .dot{ width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg, var(--primary), var(--primary-2)); box-shadow:0 0 20px #8b5cf6; }
+    .cloud-nav a{ color: var(--muted); text-decoration:none; margin-left:18px; font-size:14px; }
+    .cloud-nav a:hover, .cloud-nav a[aria-current="page"]{ color:#fff; }
+
+    .section{ padding:80px 0; border-bottom:1px dashed var(--border); }
+    .hero{ display:grid; grid-template-columns: 1.2fr .8fr; gap:40px; align-items:center; }
+    .hero h1{ font-size: clamp(36px, 7vw, 68px); line-height:1.02; margin:0 0 12px; letter-spacing:-0.02em; }
+    .hero p.lead{ color: var(--muted); font-size: clamp(16px, 2vw, 19px); }
+    .cta{ display:flex; gap:14px; margin-top:22px; flex-wrap:wrap; }
+    .btn{ border:1px solid var(--border); background:#0f172acc; color:#fff; padding:12px 16px; border-radius:12px; text-decoration:none; font-weight:600; }
+    .btn.primary{ border-color: transparent; background: linear-gradient(135deg, var(--primary), var(--primary-2)); box-shadow:0 8px 30px -10px #60a5fa; }
+    .chips{ display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+    .chip{ background: var(--chip); color:#cbd5e1; padding:8px 12px; border-radius:999px; font-size:12px; border:1px solid var(--border); }
+
+    .card{ background: var(--card); border:1px solid var(--border); border-radius:18px; padding:18px; }
+    .grid{ display:grid; gap:16px; grid-template-columns: repeat(3, 1fr); }
+
+    .about .grid > * { grid-column: span 6; }
+    .about .side { grid-column: span 6; }
+
+    .section h2{ font-size:28px; margin:0 0 20px; letter-spacing:.3px; }
+    .muted{ color: var(--muted); }
+
+    /* Projects */
+    .projects .grid > .card{ grid-column: span 6; }
+    .projects .card h3{ margin:0 0 8px; }
+
+    /* Gallery */
+    .gallery{ display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:14px; }
+    .gallery img{ width:100%; height:180px; object-fit:cover; border-radius:14px; border:1px solid var(--border); cursor:pointer; }
+
+    /* Videos */
+    .videos .grid > *{ grid-column: span 6; }
+    video{ width:100%; height: 320px; background:#0b1220; border-radius:16px; border:1px solid var(--border); }
+
+    /* Footer */
+    footer{ padding:50px 0; color: var(--muted); text-align:center; }
+
+    /* Reveal on scroll */
+    .reveal{ opacity:0; transform: translateY(10px); transition: .6s ease; }
+    .reveal.visible{ opacity:1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      .about .grid > * { grid-column: 1 / -1; }
+      .projects .grid > .card{ grid-column: 1 / -1; }
+      .videos .grid > *{ grid-column: 1 / -1; }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .gradient-veil{ animation: none; }
+      .reveal{ transition: none; }
+      html, body { scroll-behavior: auto; }
+    }
+  
+    /* ====== CLOUD BUBBLE SIDE NAV ====== */
+    .cloud-nav{ position:fixed; left:18px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:14px; z-index:60; }
+    .cloud-nav .bubble{
+      --glow: #8b5cf6;
+      display:flex; align-items:center; justify-content:center;
+      min-width:64px; padding:10px 16px; border-radius:40px/28px; text-decoration:none; font-weight:700; letter-spacing:.2px;
+      color:#f8fafc; border:1px solid var(--border);
+      background:
+        radial-gradient(120% 140% at 0% 0%, #ffffff0d 0%, #ffffff00 60%),
+        radial-gradient(120% 140% at 100% 100%, #60a5fa1a 0%, #0000 60%),
+        linear-gradient(135deg, #1f2937cc, #0b1220dd);
+      backdrop-filter: blur(6px) saturate(120%);
+      box-shadow: 0 10px 20px -12px #000, 0 0 0 0 rgba(139,92,246,.35);
+      transition: transform .35s ease, box-shadow .35s ease, filter .35s ease, background .35s ease;
+      animation: float 8s ease-in-out infinite;
+    }
+    .cloud-nav .bubble:hover{ transform: translateX(3px) scale(1.03); box-shadow:0 14px 30px -12px #000, 0 0 0 6px rgba(139,92,246,.12); }
+    .cloud-nav .bubble[aria-current="page"], .cloud-nav .bubble[data-active]{ box-shadow:0 0 0 6px rgba(139,92,246,.22), 0 10px 26px -14px #000; background: linear-gradient(135deg, var(--primary), var(--primary-2)); color:#0b1220; }
+    .cloud-nav .bubble:nth-child(1){ animation-delay: 0s; }
+    .cloud-nav .bubble:nth-child(2){ animation-delay: .6s; }
+    .cloud-nav .bubble:nth-child(3){ animation-delay: 1.2s; }
+    .cloud-nav .bubble:nth-child(4){ animation-delay: 1.8s; }
+    .cloud-nav .bubble:nth-child(5){ animation-delay: 2.4s; }
+    .cloud-nav .bubble:nth-child(6){ animation-delay: 3s; }
+    .cloud-nav .bubble:nth-child(7){ animation-delay: 3.6s; }
+
+    @keyframes float{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-6px); } }
+
+    /* Give room for side nav on wide screens */
+    @media (min-width: 900px){ body{ padding-left:110px; } }
+
+    /* Mobile: dock bubbles at bottom */
+    @media (max-width: 900px){
+      .cloud-nav{ left:50%; top:auto; bottom:16px; transform:translateX(-50%); flex-direction:row; gap:10px; padding:8px 10px; background:#0b122088; border:1px solid var(--border); border-radius:999px; backdrop-filter: blur(8px); }
+      .cloud-nav .bubble{ padding:8px 12px; font-size:12px; animation-duration: 6s; }
+    }
+  
+    /* ====== NAME TREATMENT ====== */
+    .name{ display:block; font-weight:900; }
+    .name .first{ display:block; font-weight:800; opacity:.9; }
+    .name .last{ display:block; background: linear-gradient(135deg, var(--primary), var(--primary-2)); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 2px 18px #60a5fa22; }
+    .name .rule{ display:block; width:72px; height:3px; border-radius:3px; background: linear-gradient(90deg, var(--primary), var(--primary-2)); margin:10px 0 0; box-shadow:0 6px 20px -8px #60a5fa; }
+
+    @media (max-width: 900px){
+      .name .rule{ width:56px; height:2px; }
+    }
+  
+    /* ====== PORTFOLIO STYLES ====== */
+    .kicker{ display:inline-flex; align-items:center; gap:8px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+    .kicker .dot{ width:6px; height:6px; border-radius:999px; background: linear-gradient(135deg, var(--primary), var(--primary-2)); box-shadow:0 0 12px #60a5fa; }
+    .portfolio .group{ display:grid; grid-template-columns: 1.1fr 1fr; gap:18px; }
+    .portfolio .group .card{ grid-column: span 1; }
+    .brand-grid{ display:flex; flex-wrap:wrap; gap:10px; }
+    .brand{ background: var(--chip); border:1px solid var(--border); padding:8px 12px; border-radius:999px; color:#e5e7eb; font-weight:600; }
+    .list{ columns:2; column-gap:22px; }
+    .list li{ break-inside:avoid; margin:6px 0; color: var(--muted); }
+    @media (max-width: 900px){
+      .portfolio .group{ grid-template-columns: 1fr; }
+      .list{ columns:1; }
+    }
+  
+    /* ====== FEATURED PROJECT CARD ====== */
+    .feature{ position:relative; overflow:hidden; border-radius:20px; border:1px solid var(--border); background: linear-gradient(120deg, #0b1220ee, #0f172acc); box-shadow: 0 20px 60px -40px #000; }
+    .feature-inner{ display:grid; grid-template-columns: 1.15fr .85fr; gap:18px; align-items:center; }
+    .feature .thumb{ position:relative; min-height:220px; border-left:1px solid var(--border); }
+    .feature .thumb::before{ content:""; position:absolute; inset:0; background:
+        radial-gradient(80% 120% at 20% 20%, #60a5fa22, transparent 60%),
+        radial-gradient(80% 120% at 80% 80%, #8b5cf622, transparent 60%),
+        linear-gradient(135deg, #0b1220, #0f172a);
+      filter:saturate(120%); }
+    .feature .meta{ display:flex; gap:10px; align-items:center; color:var(--muted); font-size:12px; }
+    .btn-gradient{ border:none; background: linear-gradient(135deg, var(--primary), var(--primary-2)); color:#0b1220; font-weight:800; padding:12px 16px; border-radius:14px; text-decoration:none; box-shadow:0 10px 30px -12px #60a5fa; }
+    .btn-ghost{ border:1px solid var(--border); background:#0f172acc; color:#e5e7eb; padding:12px 16px; border-radius:14px; text-decoration:none; font-weight:700; }
+    @media (max-width: 900px){ .feature-inner{ grid-template-columns: 1fr; } .feature .thumb{ min-height:160px; border-left:none; border-top:1px solid var(--border);} }
+  </style>
+  <!-- Preload hero image for faster LCP (optional) -->
+  <link rel="preload" as="image" href="Images/01.jpg" />
+  <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Favad Rahman",
+  "sameAs": ["https://www.linkedin.com/in/favad-rahman-b56659125/"]
+}
+</script>
+
+</head>
+<body>
+  <!-- Cloud Bubble Side Navigation -->
+  <aside class="cloud-nav" aria-label="Section navigation">
+    <a class="bubble" href="#home" aria-current="page">Home</a>
+    <a class="bubble" href="#about">About</a>
+    <a class="bubble" href="#projects">Projects</a>
+    <a class="bubble" href="#videos">Videos</a>
+    <a class="bubble" href="#workshops">Workshops</a>
+    <a class="bubble" href="#contact">Contact</a>
+    <a class="bubble" href="CV/CV_%20Favad%20Rahman_%20Updated%20Resume.docx" download>CV</a>
+  </aside>
+  <a href="#home" class="skip">Skip to content</a>
+  <div class="gradient-veil" aria-hidden="true"></div>
+  
+  <main class="container" id="home" tabindex="-1">
+    <!-- ===== HERO ===== -->
+    <section class="section hero" aria-labelledby="intro-title">
+      <div>
+        <h1 id="intro-title" class="reveal name" aria-label="Favad Rahman"><span class="first">Favad</span><span class="last">Rahman</span><span class="rule" aria-hidden="true"></span></h1>
+        <p class="lead reveal">Lighting Specialist & Project Manager with over 10+ years of experience in lighting design, estimation, and project management, backed by an Electrical Engineering degree from NIT Calicut. Well-versed in CIBSE and ASHRAE standards with strong knowledge of UAE regulations including DEWA, ADM, ADQCC, QCC, ESMA, and ADDC. Proven ability to lead cross-functional teams, develop innovative lighting solutions, manage vendor relationships, and consistently deliver projects on time and within budget. Possesses a strong background in commercial, retail, and infrastructure lighting applications. Demonstrated expertise in team management, conducting technical training workshops, and creating customized lighting designs. Quick to learn, technically proficient, and known for a strong record of successful project execution.</p>
+        
+        <div class="cta reveal">
+          <a class="btn primary" href="CV/CV_%20Favad%20Rahman_%20Updated%20Resume.docx" download>Download CV</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+      
+<div class="card reveal">
+  <!-- Intro media slideshow (auto-detects Images/01..60 with common extensions) -->
+  <div id="heroSlideshow" aria-live="polite" style="position:relative;width:100%;height:260px;border-radius:12px;border:1px solid var(--border);overflow:hidden;background:#0b1220;">
+    <img id="heroSlideImg" src="Images/01.jpg" alt="Portfolio image slideshow" loading="eager" decoding="async"
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s ease;opacity:1;" />
+  </div>
+  <div style="margin-top:10px;">
+    <img src="GIF/01.gif" alt="Lighting concept animated GIF" loading="lazy" decoding="async" style="width:100%; height:200px; object-fit:cover; border-radius:12px; border:1px solid var(--border);"/>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section projects portfolio" aria-labelledby="projects-title">
+      <div class="kicker reveal"><span class="dot" aria-hidden="true"></span><span>Project Portfolio</span></div>
+      <h2 id="projects-title" class="reveal" style="margin-top:10px;">Representative Experience</h2>
+
+      <!-- ===== Featured Sample Project ===== -->
+      <div class="feature reveal" role="region" aria-label="Featured sample project" style="margin:10px 0 20px;">
+        <div class="feature-inner">
+          <div style="padding:18px;">
+            <div class="kicker" style="margin-bottom:6px;"><span class="dot" aria-hidden="true"></span><span>Featured Case Study</span></div>
+            <h3 style="margin:0 0 8px;">Al Ain Coop – Al Bahay</h3>
+            <p class="muted" style="margin:0 0 12px;">A concise, interactive presentation covering design intent, fixture strategy, lux levels and implementation notes. Explore the live reference below.</p>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn-gradient" href="https://favadrahman.github.io/Al-Ain-Coop-Al-Bahay01/" target="_blank" rel="noopener">View Live Presentation</a>
+              <a class="btn-ghost" href="#contact">Request Full Portfolio</a>
+            </div>
+            <div class="meta" style="margin-top:12px;">
+              <span>Retail · Case Reference</span>
+              <span aria-hidden="true">•</span>
+              <span>Public link</span>
+            </div>
+          </div>
+          <div class="thumb" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Retail -->
+      <div class="group">
+        <article class="card reveal">
+          <h3 style="margin:0 0 8px;">Retail Lighting</h3>
+          <p class="muted" style="margin-top:0">End-to-end lighting for hypermarkets, department stores, pharmacies, and convenience formats.</p>
+          <div class="brand-grid" aria-label="Key retail clients">
+            <span class="brand">MAF · Carrefour</span>
+            <span class="brand">Lulu Outlets</span>
+            <span class="brand">Nesto Outlet</span>
+            <span class="brand">Cosmo Outlets</span>
+            <span class="brand">GMG · Géant</span>
+            <span class="brand">Grandiose</span>
+            <span class="brand">Landmark Group</span>
+            <span class="brand">Apparel Group</span>
+            <span class="brand">Life Group</span>
+            <span class="brand">Lals Group</span>
+            <span class="brand">Al Ain Coop</span>
+          </div>
+        </article>
+        <aside class="card reveal">
+          <h4 style="margin:0 0 6px;">Focus</h4>
+          <ul class="list">
+            <li>Visual comfort & brand consistency</li>
+            <li>Energy optimization & controls</li>
+            <li>Rapid rollout across multiple sites</li>
+            <li>Code compliance & documentation</li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Street -->
+      <div class="group" style="margin-top:16px;">
+        <article class="card reveal">
+          <h3 style="margin:0 0 8px;">Street Lighting</h3>
+          <ul class="list">
+            <li>Abu Dhabi Municipality (ADM) street‑lighting programs</li>
+            <li>RTA street‑lighting projects</li>
+            <li>Private roads, port areas, and precincts</li>
+          </ul>
+        </article>
+        <aside class="card reveal">
+          <h4 style="margin:0 0 6px;">Scope</h4>
+          <ul class="list">
+            <li>Retrofits and new builds</li>
+            <li>Lux‑level calculations and VE</li>
+            <li>Controls integration</li>
+            <li>As‑built documentation</li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Commercial -->
+      <div class="group" style="margin-top:16px;">
+        <article class="card reveal">
+          <h3 style="margin:0 0 8px;">Commercial Lighting</h3>
+          <ul class="list">
+            <li>Fuel stations</li>
+            <li>Oil & Gas plants</li>
+            <li>Office buildings</li>
+            <li>Shopping malls & centers</li>
+            <li>Public & private parks</li>
+            <li>Hotels & hospitals</li>
+          </ul>
+        </article>
+        <aside class="card reveal">
+          <h4 style="margin:0 0 6px;">Deliverables</h4>
+          <ul class="list">
+            <li>Concept to IFC packages</li>
+            <li>Emergency & egress schemes</li>
+            <li>Fixture schedules & BOQs</li>
+            <li>Commissioning support</li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Residential -->
+      <div class="group" style="margin-top:16px;">
+        <article class="card reveal">
+          <h3 style="margin:0 0 8px;">Residential Lighting</h3>
+          <ul class="list">
+            <li>Sheikh Zayed Housing Programs (4 phases; multiple contractors)</li>
+            <li>Private villas & multi‑storey residential buildings</li>
+            <li>Labour accommodation buildings</li>
+            <li>Mixed‑use commercial & residential developments</li>
+          </ul>
+        </article>
+        <aside class="card reveal">
+          <h4 style="margin:0 0 6px;">Approach</h4>
+          <ul class="list">
+            <li>Uniformity & glare control</li>
+            <li>Human‑centric lighting layers</li>
+            <li>Cost & schedule alignment</li>
+            <li>Client design reviews</li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Industrial -->
+      <div class="group" style="margin-top:16px;">
+        <article class="card reveal">
+          <h3 style="margin:0 0 8px;">Industrial Lighting</h3>
+          <ul class="list">
+            <li>Factory floor lighting design</li>
+            <li>Warehouse lighting retrofit</li>
+            <li>Workshops & yards</li>
+            <li>Emergency lighting system design</li>
+            <li>Hazardous‑location installations</li>
+            <li>Cold storage lighting</li>
+            <li>Aircraft hangar lighting upgrades</li>
+            <li>Treatment plant lighting design</li>
+            <li>Retrofitting in manufacturing facilities</li>
+          </ul>
+        </article>
+        <aside class="card reveal">
+          <h4 style="margin:0 0 6px;">Outcomes</h4>
+          <ul class="list">
+            <li>Improved lux levels & safety</li>
+            <li>Energy & maintenance savings</li>
+            <li>Standards compliance (CIE/IEC)</li>
+            <li>Clear as‑built packs</li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Sports -->
+      <div class="group" style="margin-top:16px;">
+        <article class="card reveal">
+          <h3 style="margin:0 0 8px;">Sports Lighting</h3>
+          <ul class="list">
+            <li>Stadium lighting installations</li>
+            <li>Outdoor sports complexes</li>
+            <li>Indoor arena lighting design</li>
+            <li>Court lighting retrofits</li>
+            <li>Golf driving ranges</li>
+            <li>Track & field upgrades</li>
+            <li>Training facility lighting</li>
+            <li>Special‑events lighting</li>
+            <li>Racecourse lighting</li>
+          </ul>
+        </article>
+        <aside class="card reveal">
+          <h4 style="margin:0 0 6px;">Key Considerations</h4>
+          <ul class="list">
+            <li>Vertical & horizontal illuminance</li>
+            <li>Glare control & TV broadcast</li>
+            <li>Uniformity & spill‑light limits</li>
+            <li>Controls & dimming curves</li>
+          </ul>
+        </aside>
+      </div> </section>
+
+    <!-- ===== VIDEOS ===== -->
+    <section id="videos" class="section videos" aria-labelledby="videos-title">
+      <h2 id="videos-title" class="reveal">Videos</h2>
+      <div id="videoGallery" class="mobile-gallery" aria-live="polite"></div>
+
+      <!-- Video Modal -->
+      <div id="videoModal" class="video-modal" aria-hidden="true">
+        <div class="video-dialog" role="dialog" aria-modal="true" aria-label="Video player">
+          <button id="videoClose" class="video-close" aria-label="Close video">&times;</button>
+          <video id="modalVideo" controls playsinline style="width:100%;height:auto;border-radius:12px;" preload="metadata"></video>
+        </div>
+      </div>
+</section>
+
+    <!-- ===== WORKSHOPS ===== -->
+    <section id="workshops" class="section" aria-labelledby="workshops-title">
+      <h2 id="workshops-title" class="reveal">Workshops</h2>
+      <p class="muted reveal">Upskilling Our Lighting Teams - Highlights from my training and workshop series for Sales, Back-Office, Trainees, and Interns—covering foundational design principles, introductions to technical software, project requirements, and the latest lighting technologies</p>
+      <div class="gallery reveal" id="workshopGallery">
+        <img src="Workshop/01.jpeg" alt="Workshop photo 01" loading="lazy" decoding="async"/>
+        <img src="Workshop/02.jpeg" alt="Workshop photo 02" loading="lazy" decoding="async"/>
+        <img src="Workshop/03.jpg"  alt="Workshop photo 03" loading="lazy" decoding="async"/>
+        <img src="Workshop/04.jpg"  alt="Workshop photo 04" loading="lazy" decoding="async"/>
+        <img src="Workshop/05.jpg"  alt="Workshop photo 05" loading="lazy" decoding="async"/>
+      </div>
+      <!-- Image Modal (mirrors Video Modal styling/behavior) -->
+      <div id="imageModal" class="video-modal" aria-hidden="true">
+        <div class="video-dialog" role="dialog" aria-modal="true" aria-label="Image viewer">
+          <button id="imageClose" class="video-close" aria-label="Close image">&times;</button>
+          <img id="modalImage" alt="Enlarged workshop image" style="width:100%;height:auto;border-radius:12px;"/>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="reveal">Contact</h2>
+      <div class="card reveal">
+        <p class="muted" style="margin-top:0;">Based in Dubai · Languages: English, Malayalam</p>
+        <div class="chips">
+          <a class="chip" href="mailto:favadmks3@gmail.com?subject=Project%20Inquiry%20from%20Portfolio" aria-label="Email Favad Rahman">favadmks3@gmail.com</a>
+          <a class="chip" href="tel:+971502074757" aria-label="Call Favad Rahman">+971 502 074757</a>
+        
+    <a class="chip" href="https://www.linkedin.com/in/favad-rahman-b56659125/" target="_blank" rel="noopener noreferrer" aria-label="Visit Favad Rahman's LinkedIn profile">LinkedIn · Favad</a>
+</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="y"></span> Favad Rahman · Designed with a soft gradient aesthetic.</small>
+    </div>
+  </footer>
+
+  <!-- ===== LIGHTBOX (for workshops) ===== -->
+  <div id="lightbox" style="position:fixed; inset:0; background:#000a; display:none; align-items:center; justify-content:center; z-index:100;" aria-hidden="true">
+    <button id="lightboxClose" aria-label="Close" style="position:absolute; top:24px; right:24px; background:#0b1220cc; color:#fff; border:1px solid var(--border); border-radius:10px; padding:8px 12px; cursor:pointer;">Close</button>
+    <img id="lightboxImg" alt="Workshop" style="max-width:92vw; max-height:88vh; border-radius:14px; border:1px solid var(--border);"/>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Smooth scroll + active nav (respects reduced motion)
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const links = document.querySelectorAll('.cloud-nav a[href^="#"]');
+    links.forEach(a=> a.addEventListener('click', e=>{
+      const target = document.querySelector(a.getAttribute('href'));
+      if(!target) return;
+      e.preventDefault();
+      target.scrollIntoView({behavior: prefersReduced ? 'auto' : 'smooth'});
+    }));
+    const sections = ['#home','#about','#projects','#videos','#workshops','#contact'].map(s=>document.querySelector(s));
+    const navlinks = document.querySelectorAll('.cloud-nav a');
+    const ioNav = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          navlinks.forEach(l=> l.removeAttribute('aria-current'));
+          const id = '#' + entry.target.id;
+          const active = document.querySelector(`.cloud-nav a[href="${id}"]`);
+          if(active) active.setAttribute('aria-current','page');
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+    sections.forEach(s=> s && ioNav.observe(s));
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} }); }, { threshold: .2 });
+    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+    // Build Outdoor videos (01.mp4 → 09.mp4)
+    const pad2 = n => n.toString().padStart(2,'0');
+    const videoGrid = document.getElementById('videoGrid');
+    const outdoorCount = 9; // adjust if you add more
+    for(let i=1;i<=outdoorCount;i++){
+      const wrap = document.createElement('div');
+      wrap.className = 'reveal';
+      wrap.style.gridColumn = 'span 6';
+      const src = `Videos/Outdoor/${pad2(i)}.mp4`;
+      wrap.innerHTML = `
+        <div class="card">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin:0 0 8px;">
+            <strong>Outdoor ${pad2(i)}</strong>
+            <small class="muted">${src}</small>
+          </div>
+          <video controls preload="metadata" playsinline controlsList="nodownload noplaybackrate">
+            <source src="${src}" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="muted" data-error style="display:none; margin-top:8px; font-size:12px;">Couldn’t load this video. Ensure the path/filename (case & leading zeros) is correct and the MP4 is encoded H.264 video + AAC audio.</div>
+        </div>`;
+      videoGrid.appendChild(wrap);
+      if (typeof io !== 'undefined') io.observe(wrap);
+      const v = wrap.querySelector('video');
+      const err = wrap.querySelector('[data-error]');
+      v.addEventListener('error', ()=>{ if(err) err.style.display='block'; });
+    }
+
+    // Lightbox for workshop images (keyboard accessible)
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbClose = document.getElementById('lightboxClose');
+    const gallery = document.getElementById('workshopGallery');
+    gallery.addEventListener('click', (e)=>{
+      const t = e.target; if(t.tagName !== 'IMG') return; lbImg.src = t.src; lb.style.display='flex'; lb.setAttribute('aria-modal','true'); lb.setAttribute('role','dialog'); lb.removeAttribute('aria-hidden'); lb.tabIndex = -1; lb.focus();
+    });
+    const closeLb = ()=>{ lb.style.display='none'; lb.setAttribute('aria-hidden','true'); };
+    lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLb(); });
+    lbClose.addEventListener('click', closeLb);
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ closeLb(); }});
+
+    // Console tip
+    console.log('%cTip','background: #111; color:#a78bfa; padding:4px 8px; border-radius:6px;','Keep this HTML next to asset folders: CV, GIF, Images, Projects, Videos (Indoor & Outdoor), Workshop.');
+  </script>
+
+
+  <script>
+    // ===== HERO SLIDESHOW (fixed list 01..05, 1s interval) =====
+    (function(){
+      const urls = [
+        'Images/01.jpg',
+        'Images/02.jpg',
+        'Images/03.jpg',
+        'Images/04.jpg',
+        'Images/05.jpg'
+      ];
+      function start(){
+        const img = document.getElementById('heroSlideImg');
+        if(!img) return;
+        let idx = 0;
+        img.src = urls[0];
+        setInterval(()=>{
+          idx = (idx + 1) % urls.length;
+          img.style.opacity = 0;
+          setTimeout(()=>{
+            img.src = urls[idx];
+            img.style.opacity = 1;
+          }, 200);
+        }, 2000); // 2 seconds
+      }
+      if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', start);
+      } else {
+        start();
+      }
+    })();
+  </script>
+
+
+  <style>
+    /* ===== Videos: Mobile-style gallery ===== */
+    .mobile-gallery{ display:grid; grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .mobile-gallery .item{
+      background: var(--chip);
+      border:1px solid var(--border);
+      border-radius:14px;
+      overflow:hidden;
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .15s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,.15);
+      touch-action: manipulation;
+    }
+    .mobile-gallery .item:active{ transform: scale(.98); }
+    .mobile-gallery .thumb{
+      position:relative;
+      width:100%;
+      aspect-ratio:16/9;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: #0b1220;
+    }
+    .mobile-gallery .thumb video{
+      width:100%; height:100%; object-fit:cover;
+      pointer-events:none; /* prevent inline play; modal handles playback */
+      opacity:.85;
+    }
+    .mobile-gallery .label{
+      padding:8px 10px;
+      font-size:.9rem;
+      color: #e5e7eb;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      border-top:1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+    .mobile-gallery .play-badge{
+      position:absolute; inset:auto auto 8px 8px;
+      display:inline-flex; align-items:center; gap:6px;
+      background: rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.2);
+      padding:6px 8px; border-radius:999px;
+      font-size:.78rem; color:#fff;
+      backdrop-filter: blur(6px);
+    }
+    .mobile-gallery .play-badge::before{
+      content:"►";
+      display:inline-block;
+      transform: translateY(-1px);
+      font-weight:700;
+    }
+
+    /* ===== Modal ===== */
+    .video-modal{
+      position:fixed; inset:0;
+      display:none;
+      align-items:center; justify-content:center;
+      background: rgba(0,0,0,.7);
+      z-index: 1000;
+      padding: 16px;
+    }
+    .video-dialog{
+      position:relative;
+      width:min(900px, 96vw);
+      background:#0b1220;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:12px;
+      box-shadow: 0 15px 60px rgba(0,0,0,.5);
+      animation: popIn .18s ease;
+    }
+    .video-close{
+      position:absolute; top:8px; right:8px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color:#fff; font-size:20px; line-height:1;
+      width:36px; height:36px; border-radius:10px;
+      cursor:pointer;
+    }
+    @keyframes popIn{ from{ transform:scale(.98); opacity:.8; } to{ transform:scale(1); opacity:1; } }
+
+    @media (max-width: 600px){ .mobile-gallery{ grid-template-columns: repeat(3, 1fr); } }
+  </style>
+
+  <script>
+    // ===== Videos Gallery + Modal Player =====
+    (function(){
+      const files = [
+        'Videos/01.mp4',
+        'Videos/02.mp4',
+        'Videos/03.mp4',
+        'Videos/04.mp4',
+        'Videos/05.mp4',
+        'Videos/06.mp4',
+        'Videos/07.mp4',
+        'Videos/08.mp4',
+        'Videos/09.mp4',
+        'Videos/10.mp4',
+        'Videos/11.mp4',
+        'Videos/12.mp4'
+      ];
+
+      const gallery = document.getElementById('videoGallery');
+      const modal = document.getElementById('videoModal');
+      const dialog = modal && modal.querySelector('.video-dialog');
+      const player = document.getElementById('modalVideo');
+      const closeBtn = document.getElementById('videoClose');
+
+      if(!gallery) return;
+
+      // Build items
+      files.forEach((src, i)=>{
+        const item = document.createElement('div');
+        item.className = 'item';
+        item.setAttribute('role','button');
+        item.setAttribute('tabindex','0');
+        item.setAttribute('aria-label', `Play video ${i+1}`);
+
+        const thumb = document.createElement('div');
+        thumb.className = 'thumb';
+
+        // Use a muted inline <video> as a thumb (no autoplay to save battery; just the first frame)
+        const v = document.createElement('video');
+        v.src = src + '#t=0.1';
+        v.preload = 'metadata';
+        v.muted = true;
+        v.playsInline = true;
+        thumb.appendChild(v);
+
+        const badge = document.createElement('span');
+        badge.className = 'play-badge';
+        badge.textContent = 'Play';
+        thumb.appendChild(badge);
+        item.appendChild(thumb);
+const open = () => {
+          if(!modal || !player) return;
+          player.src = src + '#t=0';
+          modal.style.display = 'flex';
+          modal.setAttribute('aria-hidden','false');
+          // Autoplay when the modal opens
+          const p = player.play();
+          if(p && typeof p.catch === 'function'){ p.catch(()=>{}); }
+          // Focus for ESC handling
+          closeBtn && closeBtn.focus();
+        };
+
+        item.addEventListener('click', open);
+        item.addEventListener('keydown', (e)=>{
+          if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); }
+        });
+
+        gallery.appendChild(item);
+      });
+
+      function closeModal(){
+        if(!modal || !player) return;
+        player.pause();
+        player.removeAttribute('src');
+        player.load();
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden','true');
+      }
+
+      // Close on overlay click
+      modal && modal.addEventListener('click', (e)=>{
+        if(e.target === modal){ closeModal(); }
+      });
+
+      // Close button
+      closeBtn && closeBtn.addEventListener('click', closeModal);
+
+      // Close on ESC
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && modal && modal.style.display === 'flex'){ closeModal(); }
+      });
+    })();
+  </script>
+
+
+<script>
+  // ===== Workshops Gallery Image Modal (match videos UX) =====
+  (function(){
+    const gallery = document.getElementById('workshopGallery');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementById('imageClose');
+
+    if(!gallery || !modal || !modalImg) return;
+
+    function openModal(src, alt){
+      modalImg.src = src;
+      modalImg.alt = alt || 'Workshop image';
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      // focus close for accessibility
+      closeBtn && closeBtn.focus && closeBtn.focus();
+    }
+
+    function closeModal(){
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      // clear src to free memory
+      modalImg.removeAttribute('src');
+    }
+
+    // Delegate click on images
+    gallery.addEventListener('click', (e)=>{
+      const img = e.target && e.target.tagName === 'IMG' ? e.target : null;
+      if(!img) return;
+      openModal(img.getAttribute('src'), img.getAttribute('alt'));
+    });
+
+    // Close on overlay click
+    modal.addEventListener('click', (e)=>{
+      if(e.target === modal){ closeModal(); }
+    });
+
+    // Close button
+    closeBtn && closeBtn.addEventListener('click', closeModal);
+
+    // Close on ESC
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && modal && modal.style.display === 'flex'){ closeModal(); }
+    });
+  })();
+</script>
+
+</body>
+</html>
