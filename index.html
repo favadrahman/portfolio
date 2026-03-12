@@ -18,11 +18,9 @@
         }
         .serif { font-family: 'Cormorant Garamond', serif; }
         
-        /* Reveal Animations */
         .reveal-section { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
         .reveal-section.visible { opacity: 1; transform: translateY(0); }
         
-        /* Media Styling */
         .media-wrapper { 
             position: relative; overflow: hidden; 
             filter: grayscale(100%); transition: all 0.8s ease;
@@ -40,49 +38,25 @@
         .line-draw { height: 1px; width: 0; background: var(--ink); transition: width 1.5s ease; }
         .visible .line-draw { width: 100%; }
 
-        #dynamic-caption { white-space: nowrap; display: block; }
+        #dynamic-caption { white-space: normal; display: block; word-break: break-word; }
         .chip { padding: 4px 10px; border: 1px solid rgba(26,26,26,0.1); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; color: #666; }
         
-        /* Specific Brand Highlighters */
-        .brand-highlight-frater { 
-            background-color: #00008B; 
-            color: #FFFF00;            
-            padding: 2px 8px; 
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
+        .brand-highlight-frater { background-color: #00008B; color: #FFFF00; padding: 2px 8px; font-weight: 700; transition: all 0.3s ease; display: inline-block; }
         .brand-highlight-frater:hover { background-color: #0000CD; transform: translateY(-1px); }
-
-        .brand-highlight-zubair { 
-            background-color: #A61F34; 
-            color: #FFFFFF;            
-            padding: 2px 8px; 
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
+        .brand-highlight-zubair { background-color: #A61F34; color: #FFFFFF; padding: 2px 8px; font-weight: 700; transition: all 0.3s ease; display: inline-block; }
         .brand-highlight-zubair:hover { opacity: 0.9; transform: translateY(-1px); }
-
-        .brand-highlight-zeta { 
-            background-color: #000000; 
-            color: #FFFFFF;            
-            padding: 2px 8px; 
-            font-weight: 700;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
+        .brand-highlight-zeta { background-color: #000000; color: #FFFFFF; padding: 2px 8px; font-weight: 700; transition: all 0.3s ease; display: inline-block; }
         .brand-highlight-zeta:hover { background-color: #333333; transform: translateY(-1px); }
     </style>
 </head>
 <body class="antialiased selection:bg-black selection:text-white">
 
-    <nav class="fixed top-0 w-full z-50 p-10 flex justify-between items-start pointer-events-none">
+    <nav class="fixed top-0 w-full z-50 p-6 md:p-10 flex flex-row justify-between items-start pointer-events-none">
         <div class="pointer-events-auto">
-            <h2 class="font-bold text-xs tracking-[0.5em] uppercase">Favad Rahman</h2>
-            <p class="serif italic text-lg leading-none">Consultant & Engineer</p>
+            <h2 class="font-bold text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.5em] uppercase">Favad Rahman</h2>
+            <p class="serif italic text-base md:text-lg leading-none">Consultant & Engineer</p>
         </div>
-        <div class="pointer-events-auto flex flex-col items-end space-y-4 text-[10px] uppercase tracking-widest font-bold text-stone-500">
+        <div class="pointer-events-auto flex flex-col items-end space-y-2 md:space-y-4 text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-stone-500">
             <a href="#work" class="hover:text-black transition">Appointments</a>
             <a href="#sectors" class="hover:text-black transition">Sectors</a>
             <a href="#technical" class="hover:text-black transition">Technical</a>
@@ -90,18 +64,18 @@
         </div>
     </nav>
 
-    <section class="min-h-screen flex flex-col justify-center px-10 lg:px-40 py-20">
+    <section class="min-h-screen flex flex-col justify-center px-6 md:px-10 lg:px-40 py-20">
         <div class="max-w-6xl flex flex-col items-start">
-            <span class="block text-xs uppercase tracking-[0.4em] mb-12 font-bold text-stone-500">Engineering Precision · Compliance Authority · 10+ Years UAE</span>
+            <span class="block text-[10px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.4em] mb-8 md:mb-12 font-bold text-stone-500">Engineering Precision · Compliance Authority · 10+ Years UAE</span>
             
-            <h1 class="serif text-5xl lg:text-[7vw] leading-[1.1] italic mb-12 min-h-[2.5em]">
+            <h1 class="serif text-4xl sm:text-5xl md:text-6xl lg:text-[7vw] leading-[1.1] italic mb-12 min-h-[3em] md:min-h-[2.5em]">
                 <span id="dynamic-caption" class="transition-opacity duration-700"></span>
             </h1>
 
-            <div class="grid lg:grid-cols-2 gap-20 items-end w-full">
-                <div class="line-draw mb-8"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-end w-full">
+                <div class="line-draw hidden lg:block mb-8"></div>
                 <div>
-                    <p class="text-lg lg:text-xl font-light text-stone-600 leading-relaxed mb-8">
+                    <p class="text-base md:text-lg lg:text-xl font-light text-stone-600 leading-relaxed mb-8">
                         Specializing in AI-driven lighting proposals and technical leadership for the UAE's most rigorous regulatory frameworks.
                     </p>
                     <div class="flex flex-wrap gap-2">
@@ -112,177 +86,177 @@
         </div>
     </section>
 
-    <section id="work" class="px-10 lg:px-40 py-40 border-t border-stone-200">
-        <div class="mb-32 flex justify-between items-baseline">
-            <h2 class="serif text-5xl italic">Key Appointments</h2>
-            <span class="text-xs uppercase tracking-widest font-bold text-stone-400">01 // Leadership</span>
+    <section id="work" class="px-6 md:px-10 lg:px-40 py-20 md:py-40 border-t border-stone-200">
+        <div class="mb-16 md:mb-32 flex justify-between items-baseline">
+            <h2 class="serif text-4xl md:text-5xl italic">Key Appointments</h2>
+            <span class="hidden sm:block text-xs uppercase tracking-widest font-bold text-stone-400">01 // Leadership</span>
         </div>
 
-        <div class="reveal-section flex flex-col lg:flex-row gap-16 lg:gap-24 items-center mb-60">
-            <div class="media-wrapper flex-[1.2] aspect-[3/2] lg:h-[400px] w-full">
+        <div class="reveal-section flex flex-col lg:flex-row gap-10 lg:gap-24 items-center mb-32 md:mb-60">
+            <div class="media-wrapper aspect-[3/2] w-full lg:flex-[1.2]">
                 <img src="Images/01.jpg" alt="Technical Management" class="opacity-100">
             </div>
-            <div class="flex-1 space-y-6">
+            <div class="flex-1 space-y-4 md:space-y-6">
                 <span class="text-[10px] uppercase tracking-widest text-gold font-bold">2019 – Present // Dubai, UAE</span>
-                <h3 class="serif text-5xl italic font-light">Technical Manager</h3>
+                <h3 class="serif text-3xl md:text-5xl italic font-light">Technical Manager</h3>
                 <p class="text-xs uppercase tracking-[0.2em] font-bold text-stone-500">
                     <a href="https://www.fraterlighting.com/" target="_blank" class="brand-highlight-frater">FRATER</a> by AWRostamani
                 </p>
-                <p class="text-stone-600 leading-loose font-light italic">Leading technical specification, lab management, and product development for FRATER, Eco, and FRATER+ brands. Oversight of IES file generation and technical compliance testing.</p>
-                <a href="https://frater-design.github.io/R-Building/" target="_blank" class="inline-block border border-stone-300 px-8 py-4 text-[10px] uppercase tracking-widest font-bold hover:bg-black hover:text-white transition">Explore Case Study</a>
+                <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Leading technical specification, lab management, and product development for FRATER, Eco, and FRATER+ brands. Oversight of IES file generation and technical compliance testing.</p>
+                <a href="https://frater-design.github.io/R-Building/" target="_blank" class="inline-block border border-stone-300 px-6 py-3 md:px-8 md:py-4 text-[10px] uppercase tracking-widest font-bold hover:bg-black hover:text-white transition">Explore Case Study</a>
             </div>
         </div>
 
-        <div class="reveal-section flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-center mb-60">
-            <div class="media-wrapper flex-[1.2] aspect-[3/2] lg:h-[450px] w-full">
+        <div class="reveal-section flex flex-col lg:flex-row-reverse gap-10 lg:gap-24 items-center mb-32 md:mb-60">
+            <div class="media-wrapper aspect-[3/2] w-full lg:flex-[1.2]">
                 <img src="Images/02.jpg" alt="Senior Design" class="opacity-100">
             </div>
-            <div class="flex-1 space-y-6">
+            <div class="flex-1 space-y-4 md:space-y-6">
                 <span class="text-[10px] uppercase tracking-widest text-gold font-bold">2017 – 2019 // Dubai, UAE</span>
-                <h3 class="serif text-5xl italic font-light">Senior Design & Estimation</h3>
+                <h3 class="serif text-3xl md:text-5xl italic font-light">Senior Design & Estimation</h3>
                 <p class="text-xs uppercase tracking-[0.2em] font-bold text-stone-500">
                     <a href="https://zubairelectric.com/products-systems/lighting-solutions/" target="_blank" class="brand-highlight-zubair">The Zubair Corporation</a>
                 </p>
-                <p class="text-stone-600 leading-loose font-light italic">Delivering high-compliance lighting solutions and estimations for major infrastructure accounts in the UAE, Qatar, and KSA. Supported global brands including Wilmar and Oldham Lighting.</p>
+                <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Delivering high-compliance lighting solutions and estimations for major infrastructure accounts in the UAE, Qatar, and KSA. Supported global brands including Wilmar and Oldham Lighting.</p>
             </div>
         </div>
 
-        <div class="reveal-section flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-            <div class="media-wrapper flex-[1.2] aspect-[3/2] lg:h-[400px] w-full">
+        <div class="reveal-section flex flex-col lg:flex-row gap-10 lg:gap-24 items-center">
+            <div class="media-wrapper aspect-[3/2] w-full lg:flex-[1.2]">
                 <img src="Images/03.jpg" alt="Retail Specialist" class="opacity-100">
             </div>
-            <div class="flex-1 space-y-6">
+            <div class="flex-1 space-y-4 md:space-y-6">
                 <span class="text-[10px] uppercase tracking-widest text-gold font-bold">2015 – 2017 // Dubai, UAE</span>
-                <h3 class="serif text-5xl italic font-light">Lighting Designer</h3>
+                <h3 class="serif text-3xl md:text-5xl italic font-light">Design Engineer- Lighting</h3>
                 <p class="text-xs uppercase tracking-[0.2em] font-bold text-stone-500">
                     <a href="https://www.zeta.ae/partners" target="_blank" class="brand-highlight-zeta">Zeta Lumen</a>
                 </p>
-                <p class="text-stone-600 leading-loose font-light italic">Specializing in retail and supermarket lighting for Carrefour, Lulu, and Nesto across the UAE. Focused on Lival brand integration and BOQ estimation.</p>
+                <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Specializing in retail and supermarket lighting for Carrefour, Lulu, and Nesto across the UAE. Focused on Lival brand integration and BOQ estimation.</p>
             </div>
         </div>
     </section>
 
-    <section id="sectors" class="px-10 lg:px-40 py-40 bg-stone-100">
-        <div class="mb-32 flex justify-between items-baseline">
-            <h2 class="serif text-5xl italic">Sector Specialization</h2>
-            <span class="text-xs uppercase tracking-widest font-bold text-stone-400">02 // Portfolio</span>
+    <section id="sectors" class="px-6 md:px-10 lg:px-40 py-20 md:py-40 bg-stone-100">
+        <div class="mb-16 md:mb-32 flex justify-between items-baseline">
+            <h2 class="serif text-4xl md:text-5xl italic">Sector Specialization</h2>
+            <span class="hidden sm:block text-xs uppercase tracking-widest font-bold text-stone-400">02 // Portfolio</span>
         </div>
 
-        <div class="reveal-section flex flex-col lg:flex-row-reverse gap-16 lg:gap-32 items-center mb-60">
-            <div class="media-wrapper flex-[1.5] aspect-[16/9] lg:h-[500px] w-full">
-                <video src="Videos/01.mp4" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+        <div class="grid grid-cols-1 gap-20 md:gap-40">
+            <div class="reveal-section flex flex-col lg:flex-row-reverse gap-8 lg:gap-32 items-center">
+                <div class="media-wrapper aspect-video w-full lg:flex-[1.5]">
+                    <video src="Videos/01.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
+                </div>
+                <div class="flex-1 space-y-4">
+                    <h3 class="serif text-3xl md:text-5xl italic font-light">Retail Excellence</h3>
+                    <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Strategic lighting for retail environments including supermarkets, malls, and specialty stores across the UAE.</p>
+                </div>
             </div>
-            <div class="flex-1 space-y-6">
-                <h3 class="serif text-5xl italic font-light">Retail Excellence</h3>
-                <p class="text-stone-600 leading-loose font-light italic">Strategic lighting for Carrefour, Lulu, and Nesto across the UAE, focusing on brand impact and visual comfort in hypermarket environments.</p>
-            </div>
-        </div>
 
-        <div class="reveal-section flex flex-col lg:flex-row gap-16 lg:gap-32 items-center mb-60">
-            <div class="media-wrapper flex-[1.5] aspect-[16/9] lg:h-[500px] w-full">
-                <video src="Videos/06.mp4" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+            <div class="reveal-section flex flex-col lg:flex-row gap-8 lg:gap-32 items-center">
+                <div class="media-wrapper aspect-video w-full lg:flex-[1.5]">
+                    <video src="Videos/06.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
+                </div>
+                <div class="flex-1 space-y-4">
+                    <h3 class="serif text-3xl md:text-5xl italic font-light">Civic Illumination</h3>
+                    <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Large-scale infrastructure and street lighting for ADM and RTA projects meeting municipal standards.</p>
+                </div>
             </div>
-            <div class="flex-1 space-y-6">
-                <h3 class="serif text-5xl italic font-light">Civic Illumination</h3>
-                <p class="text-stone-600 leading-loose font-light italic">Large-scale infrastructure and street lighting for Abu Dhabi Municipality (ADM) and RTA projects meeting municipal standards.</p>
-            </div>
-        </div>
 
-        <div class="reveal-section flex flex-col lg:flex-row-reverse gap-16 lg:gap-32 items-center mb-60">
-            <div class="media-wrapper flex-[1.5] aspect-[16/9] lg:h-[500px] w-full">
-                <video src="Videos/04.mp4" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+            <div class="reveal-section flex flex-col lg:flex-row-reverse gap-8 lg:gap-32 items-center">
+                <div class="media-wrapper aspect-video w-full lg:flex-[1.5]">
+                    <video src="Videos/04.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
+                </div>
+                <div class="flex-1 space-y-4">
+                    <h3 class="serif text-3xl md:text-5xl italic font-light">Industrial Precision</h3>
+                    <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Technical compliance for hazardous environments and high-bay facilities across the GCC.</p>
+                </div>
             </div>
-            <div class="flex-1 space-y-6">
-                <h3 class="serif text-5xl italic font-light">Industrial Precision</h3>
-                <p class="text-stone-600 leading-loose font-light italic">Technical compliance for hazardous environments, industrial retrofits, and high-bay facilities across the GCC.</p>
-            </div>
-        </div>
 
-        <div class="reveal-section flex flex-col lg:flex-row gap-16 lg:gap-32 items-center mb-60">
-            <div class="media-wrapper flex-[1.5] aspect-[16/9] lg:h-[500px] w-full">
-                <video src="Videos/09.mp4" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+            <div class="reveal-section flex flex-col lg:flex-row gap-8 lg:gap-32 items-center">
+                <div class="media-wrapper aspect-video w-full lg:flex-[1.5]">
+                    <video src="Videos/09.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
+                </div>
+                <div class="flex-1 space-y-4">
+                    <h3 class="serif text-3xl md:text-5xl italic font-light">Commercial Ecosystems</h3>
+                    <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Efficiency solutions meeting ASHRAE and CIBSE standards for corporate environments.</p>
+                </div>
             </div>
-            <div class="flex-1 space-y-6">
-                <h3 class="serif text-5xl italic font-light">Commercial Ecosystems</h3>
-                <p class="text-stone-600 leading-loose font-light italic">High-efficiency office and hospitality solutions meeting ASHRAE and CIBSE standards for corporate environments.</p>
-            </div>
-        </div>
 
-        <div class="reveal-section flex flex-col lg:flex-row-reverse gap-16 lg:gap-32 items-center mb-60">
-            <div class="media-wrapper flex-[1.5] aspect-[16/9] lg:h-[500px] w-full">
-                <video src="Videos/12.mp4" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+            <div class="reveal-section flex flex-col lg:flex-row-reverse gap-8 lg:gap-32 items-center">
+                <div class="media-wrapper aspect-video w-full lg:flex-[1.5]">
+                    <video src="Videos/12.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
+                </div>
+                <div class="flex-1 space-y-4">
+                    <h3 class="serif text-3xl md:text-5xl italic font-light">Residential</h3>
+                    <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Luxury villa and high-end residential lighting designs focusing on aesthetic harmony.</p>
+                </div>
             </div>
-            <div class="flex-1 space-y-6">
-                <h3 class="serif text-5xl italic font-light">Residential</h3>
-                <p class="text-stone-600 leading-loose font-light italic">Luxury villa and high-end residential lighting designs focusing on aesthetic and functional harmony.</p>
-            </div>
-        </div>
 
-        <div class="reveal-section flex flex-col lg:flex-row gap-16 lg:gap-32 items-center">
-            <div class="media-wrapper flex-[1.5] aspect-[16/9] lg:h-[500px] w-full">
-                <video src="Videos/08.mp4" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
-            </div>
-            <div class="flex-1 space-y-6">
-                <h3 class="serif text-5xl italic font-light">Sports Lighting</h3>
-                <p class="text-stone-600 leading-loose font-light italic">Elite arena floodlighting with broadcast-standard uniformity for performance-focused venues.</p>
+            <div class="reveal-section flex flex-col lg:flex-row gap-8 lg:gap-32 items-center">
+                <div class="media-wrapper aspect-video w-full lg:flex-[1.5]">
+                    <video src="Videos/08.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
+                </div>
+                <div class="flex-1 space-y-4">
+                    <h3 class="serif text-3xl md:text-5xl italic font-light">Sports Lighting</h3>
+                    <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Elite arena floodlighting with broadcast-standard uniformity.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="technical" class="px-10 lg:px-40 py-40 border-t border-stone-200">
+    <section id="technical" class="px-6 md:px-10 lg:px-40 py-20 md:py-40 border-t border-stone-200">
         <div class="max-w-6xl mx-auto">
-            <h2 class="serif text-6xl italic mb-24 text-center">Technical Command</h2>
-            <div class="grid lg:grid-cols-3 gap-12">
+            <h2 class="serif text-5xl md:text-6xl italic mb-16 md:mb-24 text-center">Technical Command</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
                 <div class="reveal-section">
-                    <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] mb-8 border-b pb-4">Compliance</h4>
-                    <p class="text-xs leading-loose text-stone-500 uppercase font-bold">
-                        DEWA · ADM · ADQCC · QCC · ESMA · ADDC · CIBSE · ASHRAE · IESNA · BSEN.
-                    </p>
+                    <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] mb-6 md:mb-8 border-b pb-4">Compliance</h4>
+                    <p class="text-[11px] md:text-xs leading-loose text-stone-500 uppercase font-bold">DEWA · ADM · ADQCC · QCC · ESMA · ADDC · CIBSE · ASHRAE · IESNA · BSEN.</p>
                 </div>
                 <div class="reveal-section">
-                    <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] mb-8 border-b pb-4">Core Competencies</h4>
+                    <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] mb-6 md:mb-8 border-b pb-4">Core Competencies</h4>
                     <ul class="text-sm italic text-stone-600 space-y-2 font-light">
                         <li>• Lighting Consulting & Specification</li>
                         <li>• ROI & Technical Submittals</li>
                         <li>• 3D Modeling & Lux Calculation</li>
                         <li>• Product R&D & IES Testing</li>
                         <li>• Project Lifecycle Management</li>
-                        <li>• Team Development & Training</li>
                     </ul>
                 </div>
-                <div class="reveal-section">
-                    <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] mb-8 border-b pb-4">Software Skills</h4>
-                    <ul class="text-[11px] text-stone-600 space-y-3 font-medium uppercase tracking-wider">
-                        <li>AutoCAD, 3D Cad</li>
-                        <li>Dialux Evo, Dialux 4.13</li>
-                        <li>Revit MEP, 3DS Max</li>
-                        <li>SketchUp</li>
-                        <li>Photoshop, Illustrator, InDesign</li>
-                        <li>Lumion, Lightroom, Premiere Pro</li>
-                        <li>MS Office Suite, Acrobat Pro</li>
-                        <li>LDT/IES Editor, GLDF Creation Tools</li>
-                    </ul>
+                <div class="reveal-section md:col-span-2 lg:col-span-1">
+                    <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] mb-6 md:mb-8 border-b pb-4">Software Skills</h4>
+                    <div class="grid grid-cols-2 lg:grid-cols-1 gap-4">
+                        <ul class="text-[10px] text-stone-600 space-y-2 font-medium uppercase tracking-wider">
+                            <li>AutoCAD / 3D Cad</li>
+                            <li>Dialux Evo / 4.13</li>
+                            <li>Revit MEP / 3DS Max</li>
+                            <li>Photoshop / Illustrator</li>
+                        </ul>
+                        <ul class="text-[10px] text-stone-600 space-y-2 font-medium uppercase tracking-wider">
+                            <li>Lumion / Premiere Pro</li>
+                            <li>MS Office Suite</li>
+                            <li>LDT / IES / GLDF Tools</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="education" class="px-10 lg:px-40 py-40 border-t border-stone-200 bg-white">
+    <section id="education" class="px-6 md:px-10 lg:px-40 py-20 md:py-40 border-t border-stone-200 bg-white">
         <div class="max-w-5xl mx-auto">
-            <h2 class="serif text-6xl italic mb-24 text-center">Academic Foundation</h2>
-            <div class="grid lg:grid-cols-3 gap-16 border-t border-stone-300 pt-16">
+            <h2 class="serif text-5xl md:text-6xl italic mb-16 md:mb-24 text-center">Academic Foundation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 border-t border-stone-300 pt-16">
                 <div class="reveal-section">
                     <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] mb-8 border-b pb-4">NIT Calicut, India</h4>
                     <p class="text-xs uppercase tracking-widest font-bold mb-2">Bachelor of Technology</p>
-                    <p class="text-[10px] leading-relaxed text-stone-500 uppercase tracking-widest">Electrical and Electronics Engineering [2010 – 2014].</p>
+                    <p class="text-[10px] leading-relaxed text-stone- stone-500 uppercase tracking-widest">Electrical and Electronics Engineering [2010 – 2014].</p>
                 </div>
-                
                 <div class="reveal-section">
                     <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] mb-8 border-b pb-4">IIT Madras, India</h4>
                     <p class="text-xs uppercase tracking-widest font-bold mb-2">Data Science Certificate</p>
                     <p class="text-[10px] leading-relaxed text-stone-500 uppercase tracking-widest">Foundations Program [2022 – 2023].</p>
                 </div>
-
                 <div class="reveal-section">
                     <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] mb-8 border-b pb-4">Specializations</h4>
                     <ul class="text-[10px] leading-loose text-stone-500 uppercase tracking-widest font-medium">
@@ -295,24 +269,21 @@
         </div>
     </section>
 
-    <footer class="py-40 px-10 text-center border-t border-stone-200">
-        <h2 class="serif text-[10vw] italic mb-20">Connect.</h2>
-        <div class="flex flex-col md:flex-row justify-center items-center gap-12 lg:gap-32 text-xs font-bold uppercase tracking-[0.3em]">
+    <footer class="py-20 md:py-40 px-6 md:px-10 text-center border-t border-stone-200">
+        <h2 class="serif text-[12vw] lg:text-[10vw] italic mb-16 md:mb-20">Connect.</h2>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 lg:gap-32 text-[10px] md:text-xs font-bold uppercase tracking-[0.3em]">
             <a href="tel:+971502074757" class="hover:line-through">+971 502 074757</a>
             <a href="mailto:favadmks3@gmail.com" class="hover:line-through">favadmks3@gmail.com</a>
             <a href="https://linkedin.com/in/favad-rahman-b56659125" target="_blank" class="hover:line-through">LinkedIn</a>
             <a href="CV/CV_ Lighing Engineer _ Favad Rahman_ Resume.docx" download class="hover:line-through text-gold">Biodata</a>
         </div>
-        <div class="mt-40">
-            <p class="text-[10px] text-stone-400 uppercase tracking-[0.5em]">Dubai, UAE · Specification Authority.</p>
+        <div class="mt-20 md:mt-40">
+            <p class="text-[9px] md:text-[10px] text-stone-400 uppercase tracking-[0.5em]">Dubai, UAE · Specification Authority.</p>
         </div>
     </footer>
 
     <script>
-        // FORCE SCROLL TO TOP ON RELOAD
-        if (history.scrollRestoration) {
-            history.scrollRestoration = 'manual';
-        }
+        if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
         window.scrollTo(0, 0);
 
         lucide.createIcons();
@@ -338,9 +309,8 @@
 
         function getRandomIndex() {
             let newIndex;
-            do {
-                newIndex = Math.floor(Math.random() * captions.length);
-            } while (newIndex === lastIndex);
+            do { newIndex = Math.floor(Math.random() * captions.length); } 
+            while (newIndex === lastIndex);
             lastIndex = newIndex;
             return newIndex;
         }
@@ -355,7 +325,6 @@
                 captionElement.style.opacity = 1;
             }, 700);
         }
-
         setInterval(changeCaption, 4500);
     </script>
 </body>
