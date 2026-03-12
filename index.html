@@ -47,6 +47,26 @@
         .brand-highlight-zubair:hover { opacity: 0.9; transform: translateY(-1px); }
         .brand-highlight-zeta { background-color: #000000; color: #FFFFFF; padding: 2px 8px; font-weight: 700; transition: all 0.3s ease; display: inline-block; }
         .brand-highlight-zeta:hover { background-color: #333333; transform: translateY(-1px); }
+
+        /* Floating WhatsApp Icon Logic */
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .whatsapp-float {
+            background-color: #25D366;
+            color: white;
+            animation: floating 3s ease-in-out infinite;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            background-color: #128C7E;
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-black selection:text-white">
@@ -56,22 +76,27 @@
             <h2 class="font-bold text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.5em] uppercase">Favad Rahman</h2>
             <p class="serif italic text-base md:text-lg leading-none">Consultant & Engineer</p>
         </div>
-        <div class="pointer-events-auto flex flex-col items-end space-y-2 md:space-y-4 text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-stone-500">
+        <div class="pointer-events-auto flex flex-col items-end space-y-3 md:space-y-4 text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-stone-500">
             <a href="#work" class="hover:text-black transition">Appointments</a>
             <a href="#sectors" class="hover:text-black transition">Sectors</a>
             <a href="#technical" class="hover:text-black transition">Technical</a>
-            <a href="mailto:favadmks3@gmail.com" class="text-black border-b border-black">Inquire</a>
+            <div class="flex flex-col items-end pt-2">
+                <a href="mailto:favadmks3@gmail.com" class="text-black border-b border-black mb-4">Inquire</a>
+                <a href="https://wa.me/971502074757?text=Hello%20Favad,%20I’d%20like%20to%20connect%20you" 
+                   target="_blank" 
+                   class="whatsapp-float p-3 rounded-full flex items-center justify-center">
+                    <i data-lucide="message-circle" class="w-5 h-5 md:w-6 md:h-6"></i>
+                </a>
+            </div>
         </div>
     </nav>
 
     <section class="min-h-screen flex flex-col justify-center px-6 md:px-10 lg:px-40 py-20">
         <div class="max-w-6xl flex flex-col items-start">
             <span class="block text-[10px] md:text-xs uppercase tracking-[0.3em] md:tracking-[0.4em] mb-8 md:mb-12 font-bold text-stone-500">Engineering Precision · Compliance Authority · 10+ Years UAE</span>
-            
             <h1 class="serif text-4xl sm:text-5xl md:text-6xl lg:text-[7vw] leading-[1.1] italic mb-12 min-h-[3em] md:min-h-[2.5em]">
                 <span id="dynamic-caption" class="transition-opacity duration-700"></span>
             </h1>
-
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-end w-full">
                 <div class="line-draw hidden lg:block mb-8"></div>
                 <div>
@@ -250,7 +275,7 @@
                 <div class="reveal-section">
                     <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] mb-8 border-b pb-4">NIT Calicut, India</h4>
                     <p class="text-xs uppercase tracking-widest font-bold mb-2">Bachelor of Technology</p>
-                    <p class="text-[10px] leading-relaxed text-stone- stone-500 uppercase tracking-widest">Electrical and Electronics Engineering [2010 – 2014].</p>
+                    <p class="text-[10px] leading-relaxed text-stone-500 uppercase tracking-widest">Electrical and Electronics Engineering [2010 – 2014].</p>
                 </div>
                 <div class="reveal-section">
                     <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] mb-8 border-b pb-4">IIT Madras, India</h4>
