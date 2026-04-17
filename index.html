@@ -71,7 +71,7 @@
 </head>
 <body class="antialiased selection:bg-black selection:text-white">
 
-    <nav class="fixed top-0 w-full z-50 p-6 md:p-10 flex flex-row justify-between items-start pointer-events-none">
+    <nav class="fixed top-0 w-full z-40 p-6 md:p-10 flex flex-row justify-between items-start pointer-events-none">
         <div class="pointer-events-auto">
             <h2 class="font-bold text-[10px] md:text-xs tracking-[0.3em] md:tracking-[0.5em] uppercase">Favad Rahman</h2>
             <p class="serif italic text-base md:text-lg leading-none">Consultant & Engineer</p>
@@ -142,7 +142,7 @@
                 <p class="text-xs uppercase tracking-[0.2em] font-bold text-stone-500">
                     <a href="https://zubairelectric.com/products-systems/lighting-solutions/" target="_blank" class="brand-highlight-zubair">The Zubair Corporation</a>
                 </p>
-                <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Delivering high-compliance lighting solutions and estimations for major infrastructure accounts in the UAE, Qatar, and KSA. Supported global brands including Lightgraphix, Wilmar and Oldham Lighting.</p>
+                <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Delivering high-compliance lighting solutions and estimations for major infrastructure accounts in the UAE, Qatar, and KSA.</p>
             </div>
         </div>
 
@@ -156,7 +156,7 @@
                 <p class="text-xs uppercase tracking-[0.2em] font-bold text-stone-500">
                     <a href="https://www.zeta.ae/partners" target="_blank" class="brand-highlight-zeta">Zeta Lumen</a>
                 </p>
-                <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Specializing in retail and supermarket lighting projects across the UAE, with expertise in lighting design coordination, Lival system integration, and accurate BOQ estimation. Experienced in delivering efficient, visually effective lighting solutions tailored for high-traffic retail environments.</p>
+                <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Specializing in retail and supermarket lighting projects across the UAE, with expertise in lighting design coordination, Lival system integration, and accurate BOQ estimation.</p>
             </div>
         </div>
     </section>
@@ -185,46 +185,6 @@
                 <div class="flex-1 space-y-4">
                     <h3 class="serif text-3xl md:text-5xl italic font-light">Civic Illumination</h3>
                     <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Large-scale infrastructure and street lighting for ADM and RTA projects meeting municipal standards.</p>
-                </div>
-            </div>
-
-            <div class="reveal-section flex flex-col lg:flex-row-reverse gap-8 lg:gap-32 items-center">
-                <div class="media-wrapper aspect-video w-full lg:flex-[1.5]">
-                    <video src="Videos/04.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
-                </div>
-                <div class="flex-1 space-y-4">
-                    <h3 class="serif text-3xl md:text-5xl italic font-light">Industrial Precision</h3>
-                    <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Technical compliance for hazardous environments and high-bay facilities across the GCC.</p>
-                </div>
-            </div>
-
-            <div class="reveal-section flex flex-col lg:flex-row gap-8 lg:gap-32 items-center">
-                <div class="media-wrapper aspect-video w-full lg:flex-[1.5]">
-                    <video src="Videos/09.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
-                </div>
-                <div class="flex-1 space-y-4">
-                    <h3 class="serif text-3xl md:text-5xl italic font-light">Commercial Ecosystems</h3>
-                    <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Efficiency solutions meeting ASHRAE and CIBSE standards for corporate environments.</p>
-                </div>
-            </div>
-
-            <div class="reveal-section flex flex-col lg:flex-row-reverse gap-8 lg:gap-32 items-center">
-                <div class="media-wrapper aspect-video w-full lg:flex-[1.5]">
-                    <video src="Videos/12.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
-                </div>
-                <div class="flex-1 space-y-4">
-                    <h3 class="serif text-3xl md:text-5xl italic font-light">Residential</h3>
-                    <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Luxury villa and high-end residential lighting designs focusing on aesthetic harmony.</p>
-                </div>
-            </div>
-
-            <div class="reveal-section flex flex-col lg:flex-row gap-8 lg:gap-32 items-center">
-                <div class="media-wrapper aspect-video w-full lg:flex-[1.5]">
-                    <video src="Videos/08.mp4" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
-                </div>
-                <div class="flex-1 space-y-4">
-                    <h3 class="serif text-3xl md:text-5xl italic font-light">Sports Lighting</h3>
-                    <p class="text-sm md:text-base text-stone-600 leading-loose font-light italic">Elite arena floodlighting with broadcast-standard uniformity.</p>
                 </div>
             </div>
         </div>
@@ -323,10 +283,7 @@
             "Lighting<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Architect.",
             "Lighting Specification &<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Engineering Authority.",
             "Luminous<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Artistry.",
-            "Engineering precision &<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;architectural vision.",
-            "Architecting<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Light.",
-            "Mastering<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Dark.",
-            "Luminous<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solutions."
+            "Engineering precision &<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;architectural vision."
         ];
 
         let lastIndex = -1;
@@ -352,5 +309,17 @@
         }
         setInterval(changeCaption, 4500);
     </script>
-</body>
+
+    <script>
+      window.chatbaseConfig = {
+        chatbotId: "7nxILISJSvjMnsCDsjHm_",
+      }
+    </script>
+    <script
+      src="https://www.chatbase.co/embed.min.js"
+      chatbotId="7nxILISJSvjMnsCDsjHm_"
+      domain="www.chatbase.co"
+      defer>
+    </script>
+    </body>
 </html>
